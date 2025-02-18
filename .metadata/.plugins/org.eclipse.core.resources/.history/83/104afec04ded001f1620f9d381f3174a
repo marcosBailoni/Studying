@@ -1,0 +1,19 @@
+package infra;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class DAO_Contato {
+	
+	private static EntityManager emf;
+	private EntityManagerFactory em;
+
+	static {
+		try {
+			emf = Persistence.createEntityManagerFactory("agenda-jpa");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}

@@ -1,0 +1,57 @@
+package interfacesFuncionaisExc02;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class Program {
+	
+	public static void main(String[] args) {
+		
+		List<Product> productList = new ArrayList<>();
+
+		Scanner entrada = new Scanner(System.in);
+		
+		System.out.print("Digite o caminho do arquivo: ");
+		String path = entrada.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			
+			String line = br.readLine();
+			
+			while (line != null) {
+				String[] vect = line.split(",");
+				
+				productList.add(new Product(vect[0], Double.parseDouble(vect[1])));
+			
+				line = br.readLine();			
+			}
+			
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+		
+		
+		double avg = productList.stream()
+				.map(p -> p.getPrice()) // retorna uma stream com base na function passada
+				.reduce(0.0, (p1, p2) -> p1 + p2) / productList.size();  // reduce -> acumulador + binary operator
+		
+		System.out.printf("Avarege price: %.2f", avg);
+		
+		List<String> names = productList.stream()
+				.filter(p -> p.getPrice() < avg)
+				.map(p -> p.getName())
+				.sorted(Comparator.reverseOrder())
+				.toList();
+		
+		
+		
+		entrada.close();
+	}
+
+}

@@ -1,0 +1,22 @@
+package interfacesFuncionais;
+
+import java.util.List;
+import java.util.function.Predicate;
+
+public class MyFunction {
+	
+	
+//	O método recebe um produto e um predicate, retorna a soma dos preços dos produtos que condizem com o predicate
+	public  double filteredSum(List<Product> lista, Predicate<Product> pred) {
+		
+		double sum = 0;
+		
+		for (Product product : lista) {
+			if(pred.test(product)) {
+				sum += product.getPrice();
+			}
+		}		
+		return sum;
+	}
+
+}

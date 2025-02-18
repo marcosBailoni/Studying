@@ -1,0 +1,46 @@
+package interfacesFuncionaisExc02;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Program {
+	
+	public static void main(String[] args) {
+		
+		List<Product> productList = new ArrayList<>();
+
+		Scanner entrada = new Scanner(System.in);
+		
+		System.out.print("Digite o caminho do arquivo: ");
+		String path = entrada.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			
+			String line = br.readLine();
+			
+			while (line != null) {
+				String[] vect = line.split(",");
+				
+			}
+			
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		entrada.close();
+	}
+
+}

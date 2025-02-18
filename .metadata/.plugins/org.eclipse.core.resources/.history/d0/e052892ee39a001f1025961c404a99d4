@@ -1,0 +1,52 @@
+package interfacesFuncionaisExc03;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+	
+		Scanner entrada = new Scanner(System.in);
+//		String path = "C:\\temp\\employees.csv";
+		
+		System.out.print("Enter full path: ");
+		
+		String path = entrada.nextLine();
+		
+		
+		List<Employee> employeesList = new ArrayList<>();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			
+			String line = br.readLine();
+			
+			while(line != null) {
+			
+				String[] vect = line.split(",");
+				
+				employeesList.add(new Employee(vect[0], vect[1], Double.parseDouble(vect[2])));
+				
+			}
+			
+		} catch (IOException e ) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.print("Enter salary: ");
+		double avg = Double.parseDouble(entrada.nextLine());
+		
+		
+		
+		
+		
+		
+		
+		
+		entrada.close();
+	}
+}

@@ -1,0 +1,11 @@
+package heranca;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Aluno a1 = new Aluno();
+		AlunoBolsista a2 = new AlunoBolsista();
+	}
+
+}

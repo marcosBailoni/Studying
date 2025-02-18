@@ -1,0 +1,14 @@
+package entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Agenda {
+	
+	List<Contato> contatos;
+	
+	Agenda(){
+		contatos = new ArrayList<Contato>();
+	}
+
+}

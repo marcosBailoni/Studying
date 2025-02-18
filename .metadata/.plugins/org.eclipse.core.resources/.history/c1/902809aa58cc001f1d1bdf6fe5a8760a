@@ -1,0 +1,26 @@
+package program;
+
+import java.util.List;
+
+import entities.Produto;
+import infra.DAO;
+
+public class Main3 {
+
+	public static void main(String[] args) {
+		
+		DAO<Produto> dao = new DAO<Produto>(Produto.class);
+		
+		Produto p1 = new Produto("Abacaxi", 30.0);
+		
+//		dao.inserirAtomico(p1);
+		
+		List<Produto> lista =  dao.obterTodos();
+		
+		for (Produto produto : lista) {
+			System.out.println(produto);
+		}
+		
+		
+	}
+}

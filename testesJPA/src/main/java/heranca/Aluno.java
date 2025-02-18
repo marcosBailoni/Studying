@@ -1,0 +1,73 @@
+package heranca;
+
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Aluno_Type", length = 2, discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("AL")
+public class Aluno {
+	
+	@Id
+	private int id;
+	
+	private String name;
+	
+	private Double mensalidade;
+	
+	
+
+
+	Aluno(){
+		
+	}
+	
+	
+
+
+	public Aluno(int id, String name, Double mensalidade) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mensalidade = mensalidade;
+	}
+
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getMensalidade() {
+		return mensalidade;
+	}
+	
+	
+	public void setMensalidade(Double mensalidade) {
+		this.mensalidade = mensalidade;
+	}
+	
+	
+}

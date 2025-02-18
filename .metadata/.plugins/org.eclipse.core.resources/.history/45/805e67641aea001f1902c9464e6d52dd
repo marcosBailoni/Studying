@@ -1,0 +1,23 @@
+package heranca;
+
+@Entity
+public class AlunoBolsista extends Aluno{
+	
+	private Double desconto;
+	
+	AlunoBolsista(int id, String name, Double mensalidade, double desconto){
+		super(id, name, mensalidade);
+		this.desconto = desconto;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+	
+	
+
+}

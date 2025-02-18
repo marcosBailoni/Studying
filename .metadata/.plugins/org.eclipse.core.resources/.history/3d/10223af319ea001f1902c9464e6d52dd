@@ -1,0 +1,48 @@
+package heranca;
+
+public class Aluno {
+	
+	private int id;
+	
+	private String name;
+	
+	private Double mensalidade;
+	
+	
+
+
+	Aluno(){
+		
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getMensalidade() {
+		return mensalidade;
+	}
+	
+	
+	public void setMensalidade(Double mensalidade) {
+		this.mensalidade = mensalidade;
+	}
+	
+	
+}

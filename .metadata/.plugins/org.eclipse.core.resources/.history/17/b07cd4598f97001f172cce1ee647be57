@@ -1,0 +1,67 @@
+package interfacesFuncionais;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class Program {
+	
+	public static void main(String[] args) {
+		
+		
+		Product prod1 = new Product("Notebook", 1000);
+		Product prod2 = new Product("Lápis", 2);
+		Product prod3 = new Product("Carrinho", 50);
+		Product prod4 = new Product("Cabana", 120);
+		
+		List<Product> lista = new ArrayList<>(Arrays.asList(prod1, prod2, prod3, prod4));
+		
+		System.out.println("Print lista inicial: ");
+		for (Product product : lista) {
+			System.out.println(product);
+		}
+		
+		//lambda servindo de comparator: 
+		lista.sort((p1, p2) -> p1.getNome().toUpperCase().compareTo(p2.getNome().toUpperCase()));	
+		lista.sort((p1, p2) -> p1.getPrice().compareTo(p2.getPrice()));
+		
+		System.out.println("\nPrint lista ordenada por nome com comparator / lambda: ");
+		
+		for (Product product : lista) {
+			System.out.println(product);
+		}
+		
+		lista.removeIf(p -> p.getPrice() > 200); // lambda como predicado - retorna um boolean
+		
+		
+		System.out.println("\nPrint depois de usar um predicado/lambda no removeif para preços maiores que 200; ");
+		
+		for (Product product : lista) {
+			System.out.println(product);
+		}
+		
+		// lambda como consumer, retorna void e faz uma ação, no caso, aumenta o preço em 10%
+		lista.forEach(p -> p.setPrice(p.getPrice() * 1.10));
+		
+		System.out.println("\nPrint depois do consumer aumentando em 10% o valor");
+		for (Product product : lista) {
+			System.out.println(product);
+			
+		}
+		
+		//function recebe 2 tipos (um pra entrada e um pra saída; retorna void, mas realiza uma ação)
+		//exemplo abaixo: recebe produto e retorna string;
+		List<String> nomes = lista.stream().map(p -> p.getNome().toUpperCase()).collect(Collectors.toList());
+		System.out.println("\nPrint de lista de nomes, usando map + funciton: ");
+
+		for (String nome: nomes) {
+			System.out.println(nome);
+		}
+		
+		MyFunction mf = new MyFunction();
+		
+		System.out.println("Soma pelo método = " + String.format("%.2f", mf.filteredSum(lista, p -> p.getPrice() < 100)));
+	}
+
+}
