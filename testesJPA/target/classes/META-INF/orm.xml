@@ -7,7 +7,8 @@
 
 	<named-query name="FindByNotaMaiorQue">
 		<query>
-			SELECT distinct f FROM Filme f 
+			SELECT distinct f 
+			FROM Filme f
 			join fetch f.atores
 			WHERE f.score >= :nota
 		</query>

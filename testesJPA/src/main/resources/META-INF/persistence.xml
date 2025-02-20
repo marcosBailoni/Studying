@@ -18,7 +18,7 @@
         <class>umparamuitos.ItemPedido</class> 
         <class>umparamuitos.Pedido</class>
         <class>muitospramuitos.Ator</class>
-        <class>muitospramuitos.Filme</class>        
+        <class>muitospramuitos.Filme</class>
         
         <properties>
             <!-- Configuração do banco de dados -->
